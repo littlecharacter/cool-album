@@ -34,14 +34,14 @@
         });
 
         var index = 0;
-        var text = "<br/>你手中的照片<br/>我手里的诗篇<br/>我轻拨琴弦<br/>轻吟低唱<br/>你轻甩衣摆<br/>起舞弄影<br/><br/>夕阳的余晖中<br/>我们安坐摇椅<br/>有一句没一句聊着的<br/>是一路走来的点点滴滴<br/><br/>陪伴是最长情的告白<br/>相守是最浪漫的承诺<br/>此生一梦<br/>此梦一生<br/><br/>你今生的一次回眸<br/>是我前世千百次的期盼<br/>请顿足我的人生<br/>与我共老<br/><br/>最浪漫的事<br/>有你一起";
+        var text = "你手中的照片<br/>我手里的诗篇<br/>我轻拨琴弦<br/>轻吟低唱<br/>你轻甩衣摆<br/>起舞弄影<br/><br/>夕阳的余晖中<br/>我们安坐摇椅<br/>有一句没一句聊着的<br/>是一路走来的点点滴滴<br/><br/>陪伴是最长情的告白<br/>相守是最浪漫的承诺<br/>此生一梦<br/>此梦一生<br/><br/>你今生的一次回眸<br/>是我前世千百次的期盼<br/>请顿足我的人生<br/>与我共老<br/><br/>最浪漫的事<br/>有你一起";
         function write(){
             if (index >text.length){
                 return;
                 //return 加入则text显示完后，停止。
             }
             var str = text.substr(0,index);
-            document.getElementById("txt").innerHTML = "<span style='font-size: 30px;'>" + str + "</span>";
+            document.getElementById("txt").innerHTML = "<span style='font-size: 31px;'>" + str + "</span>";
             index++;
         }
         setInterval(write, 150);
@@ -51,54 +51,80 @@
         // audio.autoplay = 'autoplay';
         // audio.loop = true;
         // document.body.appendChild(audio);
+
+        var imgIndex = 0;
+        var imgNum;
+        var imgInnerHTML;
+        var album;
+        function change() {
+            if (imgIndex >= 12) {
+                imgIndex = imgIndex % 12;
+            }
+            for (var i = 0; i < 12; i++) {
+                imgNum = (i + imgIndex) % 12;
+                if (i < 6) {
+                    imgInnerHTML = "<img src=\"static/img/img" + imgNum + ".jpg\" class=\"pic\" />";
+                } else {
+                    imgInnerHTML = "<img src=\"static/img/img" + imgNum + ".jpg\" class=\"in_pic\" />";
+                }
+                album = document.getElementById(i + "");
+                album.innerHTML = imgInnerHTML;
+            }
+            imgIndex++;
+        }
+        setInterval(change, 5000);
 	</script>
+
+    <br/>
 
 	<!--/*外层最大容器*/-->
 	<div class="wrap">
 		<!--	/*包裹所有元素的容器*/-->
 		<div class="cube">
 			<!--前面图片 -->
-			<div class="out_front">
-				<img src="static/img/img01.jpg " class="pic" />
+			<div id="0" class="out_front">
+				<img src="static/img/img0.jpg " class="pic" />
 			</div>
 			<!--后面图片 -->
-			<div class="out_back">
-				<img src="static/img/img02.jpg" class="pic"/>
+			<div id="1" class="out_back">
+				<img src="static/img/img1.jpg" class="pic"/>
 			</div>
 			<!--左图片 -->
-			<div class="out_left">
-				<img src="static/img/img03.jpg" class="pic" />
+			<div id="2" class="out_left">
+				<img src="static/img/img2.jpg" class="pic" />
 			</div>
-			<div class="out_right">
-				<img src="static/img/img04.jpg" class="pic" />
+			<div id="3" class="out_right">
+				<img src="static/img/img3.jpg" class="pic" />
 			</div>
-			<div class="out_top">
-				<img src="static/img/img05.jpg" class="pic" />
+			<div id="4" class="out_top">
+				<img src="static/img/img4.jpg" class="pic" />
 			</div>
-			<div class="out_bottom">
-				<img src="static/img/img06.jpg" class="pic" />
+			<div id="5" class="out_bottom">
+				<img src="static/img/img5.jpg" class="pic" />
 			</div>
 			<!--小正方体 -->
-			<span class="in_front">
-				<img src="static/img/img07.jpg" class="in_pic" />
+			<span id="6" class="in_front">
+				<img src="static/img/img6.jpg" class="in_pic" />
 			</span>
-			<span class="in_back">
-				<img src="static/img/img08.jpg" class="in_pic" />
+			<span id="7" class="in_back">
+				<img src="static/img/img7.jpg" class="in_pic" />
 			</span>
-			<span class="in_left">
-				<img src="static/img/img09.jpg" class="in_pic" />
+			<span id="8" class="in_left">
+				<img src="static/img/img8.jpg" class="in_pic" />
 			</span>
-			<span class="in_right">
+			<span id="9" class="in_right">
+				<img src="static/img/img9.jpg" class="in_pic" />
+			</span>
+			<span id="10" class="in_top">
 				<img src="static/img/img10.jpg" class="in_pic" />
 			</span>
-			<span class="in_top">
+			<span id="11" class="in_bottom">
 				<img src="static/img/img11.jpg" class="in_pic" />
-			</span>
-			<span class="in_bottom">
-				<img src="static/img/img12.jpg" class="in_pic" />
 			</span>
 		</div>
 	</div>
+
+    <br/>
 
 	<div id="txt"></div>
 </body>
