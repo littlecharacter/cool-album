@@ -5,6 +5,6 @@
          version="3.1">
     <display-name>cool-album</display-name>
     <welcome-file-list>
-        <welcome-file>index.html</welcome-file>
+        <welcome-file>album.html</welcome-file>
     </welcome-file-list>
 </web-app>
