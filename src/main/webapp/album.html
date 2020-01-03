@@ -2,7 +2,8 @@
 <html>
 <head>
 	<meta charset="utf-8" />
-	<title style="text-align: center;align-content: center;">Cool Album</title>
+	<title>Cool Album</title>
+    <!-- css -->
 	<link rel="stylesheet" href="static/css/hovertree.css" />
 </head>
 <body style="text-align: center;">
@@ -10,9 +11,9 @@
 		<h2></h2>
 	</div>
 	<!-- 仅自动播放音乐 -->
-	<audio loop src="static/music/qianyuqianxun.mp3" id="audio" autoplay preload="auto">该浏览器不支持audio属性</audio>
+	<audio loop id="audio" autoplay preload="auto" src="static/music/qianyuqianxun.mp3" >部分浏览器不支持audio属性</audio>
 	<script type="text/javascript">
-        //--创建页面监听，等待微信端页面加载完毕 触发音频播放
+        // 创建页面监听，等待微信端页面加载完毕 触发音频播放
         document.addEventListener('DOMContentLoaded', function () {
             function audioAutoPlay() {
                 var audio = document.getElementById('audio');
@@ -24,7 +25,7 @@
             audioAutoPlay();
         });
 
-        //--创建触摸监听，当浏览器打开页面时，触摸屏幕触发事件，进行音频播放
+        // 创建触摸监听，当浏览器打开页面时，触摸屏幕触发事件，进行音频播放
         document.addEventListener('touchstart', function () {
             function audioAutoPlay() {
                 var audio = document.getElementById('audio');
@@ -41,16 +42,16 @@
                 //return 加入则text显示完后，停止。
             }
             var str = text.substr(0,index);
-            document.getElementById("txt").innerHTML = "<span style='font-size: 31px;'>" + str + "</span>";
+            document.getElementById("txt").innerHTML = "<span style='font-size: 30px;'>" + str + "</span>";
             index++;
         }
         setInterval(write, 150);
 
-        // var audio = document.createElement('audio');
-        // audio.src = 'static/music/qianyuqianxun.mp3';//这里放音乐的地址
-        // audio.autoplay = 'autoplay';
-        // audio.loop = true;
-        // document.body.appendChild(audio);
+        //var audio = document.createElement('audio');
+        //audio.src = 'static/music/qianyuqianxun.mp3';//这里放音乐的地址
+        //audio.autoplay = 'autoplay';
+        //audio.loop = true;
+        //document.body.appendChild(audio);
 
         var imgIndex = 0;
         var imgNum;
