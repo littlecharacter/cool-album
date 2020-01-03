@@ -10,6 +10,7 @@
     <packaging>war</packaging>
 
     <build>
-        <finalName>cool-album</finalName>
+        <!--<finalName>cool-album</finalName>-->
+        <finalName>fire-album</finalName>
     </build>
 </project>
