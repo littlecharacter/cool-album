@@ -11,7 +11,7 @@
 		<h2></h2>
 	</div>
 	<!-- 仅自动播放音乐 -->
-	<audio loop id="audio" autoplay preload="auto" src="static/music/qianyuqianxun.mp3" >部分浏览器不支持audio属性</audio>
+	<audio loop id="audio" autoplay preload="auto" src="static/music/renhai.mp3" >部分浏览器不支持audio属性</audio>
 	<script type="text/javascript">
         // 创建页面监听，等待微信端页面加载完毕 触发音频播放
         document.addEventListener('DOMContentLoaded', function () {
@@ -35,14 +35,14 @@
         });
 
         var index = 0;
-        var text = "你手中的照片<br/>我手里的诗篇<br/>我轻拨琴弦<br/>轻吟低唱<br/>你轻甩衣摆<br/>起舞弄影<br/><br/>夕阳的余晖中<br/>我们安坐摇椅<br/>有一句没一句聊着的<br/>是一路走来的点点滴滴<br/><br/>陪伴是最长情的告白<br/>相守是最浪漫的承诺<br/>此生一梦<br/>此梦一生<br/><br/>你今生的一次回眸<br/>是我前世千百次的期盼<br/>请顿足我的人生<br/>与我共老<br/><br/>最浪漫的事<br/>有你一起";
+        var text = "你手中的照片<br/>我手里的诗篇<br/>我轻弹琴弦<br/>浅吟低唱<br/>你轻挥衣袖<br/>起舞弄影<br/><br/>夕阳的余晖中<br/>我们安坐摇椅<br/>有一句没一句聊着的<br/>是一路走来的点点滴滴<br/><br/>陪伴是最长情的告白<br/>相守是最浪漫的承诺<br/>此生一梦<br/>此梦一生<br/><br/>你今生的一次回眸<br/>是我前世千百次的期盼<br/>请顿足我的人生<br/>与我共老<br/><br/>最浪漫的事<br/>有你一起";
         function write(){
             if (index >text.length){
                 return;
                 //return 加入则text显示完后，停止。
             }
             var str = text.substr(0,index);
-            document.getElementById("txt").innerHTML = "<span style='font-size: 30px;'>" + str + "</span>";
+            document.getElementById("txt").innerHTML = "<span style='font-size: 30.5px;'>" + str + "</span>";
             index++;
         }
         setInterval(write, 150);
@@ -53,23 +53,26 @@
         //audio.loop = true;
         //document.body.appendChild(audio);
 
-        var imgIndex = 0;
+        var imgTotal = 60;
+        var imgAlbum = 12;
+        var albumHalt = imgAlbum / 2;
+        var albumDocument;
         var imgNum;
         var imgInnerHTML;
-        var album;
+        var imgIndex = 0;
         function change() {
-            if (imgIndex >= 12) {
-                imgIndex = imgIndex % 12;
+            if (imgIndex >= imgTotal) {
+                imgIndex = imgIndex % imgTotal;
             }
-            for (var i = 0; i < 12; i++) {
-                imgNum = (i + imgIndex) % 12;
-                if (i < 6) {
+            for (var i = 0; i < imgAlbum; i++) {
+                imgNum = (i + imgIndex) % imgTotal;
+                if (i < albumHalt) {
                     imgInnerHTML = "<img src=\"static/img/img" + imgNum + ".jpg\" class=\"pic\" />";
                 } else {
                     imgInnerHTML = "<img src=\"static/img/img" + imgNum + ".jpg\" class=\"in_pic\" />";
                 }
-                album = document.getElementById(i + "");
-                album.innerHTML = imgInnerHTML;
+                albumDocument = document.getElementById(i + "");
+                albumDocument.innerHTML = imgInnerHTML;
             }
             imgIndex++;
         }
@@ -125,7 +128,7 @@
 		</div>
 	</div>
 
-    <br/><br/>
+    <br/>
 
 	<div id="txt"></div>
 </body>
