@@ -42,7 +42,7 @@ html {
     position: absolute;
     width: 400px;
     height: 400px;
-    opacity: 0.8;
+    opacity: 0.85;
     transition: all .4s;
 }
 
